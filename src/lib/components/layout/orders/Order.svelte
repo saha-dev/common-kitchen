@@ -18,10 +18,10 @@
 		<OrderTitle title="Дата:" value={order.date} />
 		<OrderTitle title="№" value={order.id} />
 		<div class="long-row">
-			<OrderTitle title={'Замовник:'} value={order.customer} />
+			<OrderTitle title="Замовник:" value={order.customer} />
 		</div>
 		<div class="long-row">
-			<OrderTitle title={'Заклад:'} value={order.location} />
+			<OrderTitle title="Заклад:" value={order.location} />
 		</div>
 		<OrderTitle title="Отримання:" value={order.deliveryType} />
 		<OrderTitle title="Оплата:" value={order.paymentMethod} />
@@ -30,6 +30,7 @@
 			title="Доставка:"
 			value={order.deliveryAmount === '0' ? 'безкоштовно' : `${order.deliveryAmount} ₴`}
 		/>
+		<OrderTitle title="Дата доставки:" value={order.deliveryDate} />
 		{#if order.note}
 			<div class="long-row">
 				<OrderTitle title="Примітка:" value={order.note} isBold={false} />
@@ -37,9 +38,9 @@
 		{/if}
 	</div>
 	<div class="action-row">
-		<Button title={'Повторити'} onclick={() => handleRepeat(order)} />
+		<Button title="Повторити" onclick={() => handleRepeat(order)} />
 		{#if !order.paid}
-			<Button title={'Оплатити'} onclick={() => handlePay(order)} />
+			<Button title="Оплатити" onclick={() => handlePay(order)} />
 		{:else}
 			<div class="paid">
 				<img src="./check.webp" alt="Оплачено" />
